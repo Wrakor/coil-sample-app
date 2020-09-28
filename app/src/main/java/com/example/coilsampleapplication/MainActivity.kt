@@ -2,11 +2,6 @@ package com.example.coilsampleapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import coil.Coil
-import coil.ImageLoader
-import coil.decode.GifDecoder
-import coil.decode.SvgDecoder
-import coil.load
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +11,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val items = listOf(
-            Item("https://miro.medium.com/max/3000/1*MI686k5sDQrISBM6L8pf5A.jpeg", exampleText),
-            Item("https://images.unsplash.com/photo-1575314858013-6a4eebce01dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1177&q=80", exampleText2))
+            Item(
+                "https://miro.medium.com/max/3000/1*MI686k5sDQrISBM6L8pf5A.jpeg",
+                "https://wcmsuatbo.tap.pt/-/media/Flytap/destinations/names/Barcelona/barcelona_ENUS.ashx",
+                exampleText + exampleText),
+            Item(
+                "https://images.unsplash.com/photo-1575314858013-6a4eebce01dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1177&q=80",
+                "https://wcmsuatbo.tap.pt/-/media/Flytap/destinations/names/Funchal/funchal__ENUS.ashx", //Problematic SVG
+                exampleText2 + exampleText))
 
         viewPager.adapter = SimplePagerAdapter(items)
     }
-
 
     companion object {
         val exampleText =

@@ -16,9 +16,10 @@ class SimplePagerAdapter(private val items: List<Item>) : PagerAdapter() {
     override fun instantiateItem(container: ViewGroup, position: Int): Any =
         LayoutInflater.from(container.context).inflate(R.layout.view_pager_item, container, false).apply {
             val item = items[position]
-            imageView.load(item.url) //loadWithCoil(item.url)
+            imageView.loadWithCoil(item.backgroundUrl)
+            svgImageView.loadWithCoil(item.svgUrl)
             textView.text = item.text
-
+            tag = position
             container.addView(this)
         }
 
